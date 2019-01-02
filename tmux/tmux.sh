@@ -1,6 +1,6 @@
 #!/bin/bash
 SESSION=main
-tmux="tmux -2 -f tmux/tmux.conf"
+tmux="tmux -2 -f /home/karim/settings/tmux/tmux.conf"
 
 # if the session is already running, just attach to it.
 $tmux has-session -t $SESSION
@@ -21,4 +21,6 @@ $tmux split-window  -v -t $SESSION:1
 $tmux new-window    -t $SESSION:2
 $tmux split-window  -h -t $SESSION:2
 $tmux split-window  -v -t $SESSION:2
+$tmux split-window  -v -t $SESSION:2
 $tmux attach -t $SESSION
+echo "hey!!!!"
