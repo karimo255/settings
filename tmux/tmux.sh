@@ -16,11 +16,7 @@ $tmux new-session -d -s $SESSION
 $tmux new-window    -t $SESSION:1 
 $tmux split-window  -h -t $SESSION:1
 $tmux split-window  -v -t $SESSION:1
-$tmux split-window  -h -t $SESSION:1
-$tmux split-window  -v -t $SESSION:1
 $tmux new-window    -t $SESSION:2
 $tmux split-window  -h -t $SESSION:2
-$tmux split-window  -v -t $SESSION:2
-$tmux split-window  -v -t $SESSION:2
 $tmux attach -t $SESSION
 echo "hey!!!!"
