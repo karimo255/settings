@@ -6,7 +6,7 @@ set nocompatible
 filetype on                  " required
 
 syntax on
-" set background=dark
+set background=dark
 set backspace=indent,eol,start
 set backupcopy=yes
 set clipboard=
@@ -73,6 +73,9 @@ autocmd BufNewFile,BufRead *.ejs setf html
 autocmd BufNewFile,BufRead *.hubl setf jinja
 autocmd BufNewFile,BufRead *.conf setf conf
 
+" Syntax highlighting for typescript
+" ----------------------------------
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
 " Make an educated guess on which file is an nginx config
 " -------------------------------------------------------
@@ -82,11 +85,18 @@ au BufRead,BufNewFile */usr/local/nginx/conf/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 
 
+" Indentation
+" -----------
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+
 " Indentation based on filetype
 " -----------------------------
-au Filetype apiblueprint setlocal ts=4 sts=4 sw=4 expandtab
-au Filetype pug setlocal ts=2 sts=2 sw=2 expandtab
-
+" au Filetype apiblueprint setlocal ts=2 sts=2 sw=2 expandtab
+" au Filetype pug setlocal ts=2 sts=2 sw=2 expandtab
 
 " Shortcuts
 " =========
@@ -97,7 +107,6 @@ au Filetype pug setlocal ts=2 sts=2 sw=2 expandtab
 nmap <c-o> :Files<cr>
 
 
-" Open fzf#ag via <Ctrl-f>
 " ------------------------
 nmap <c-f> :Ag!<space>
 nmap <leader><c-f> :Ag! <cword><cr>
@@ -187,4 +196,5 @@ endif
 cmap <Esc>[A <Up>
 cmap <Esc>[B <Down>
 cmap <Esc>[C <Right>
-c
+cmap <Esc>[C <Left>
+
