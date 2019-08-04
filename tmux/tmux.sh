@@ -14,6 +14,7 @@ fi
 # create a new session, named $SESSION, and detach from it
 $tmux new-session -d -s $SESSION
 $tmux new-window    -t $SESSION:1
+$tmux send-keys "cd /home/karim/dev/rest-api" C-m
 $tmux split-window  -h -t $SESSION:1
 $tmux split-window  -v -t $SESSION:1
 $tmux new-window    -t $SESSION:2
