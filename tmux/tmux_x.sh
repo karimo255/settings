@@ -6,12 +6,8 @@ windows_count=`tmux list-windows | wc -l`
 nourpos_path="/home/karim/nourpos"
 
 # create a new session, named $SESSION, and detach from it
-
 $tmux new-window    -t $SESSION:$(($windows_count + 1))
 
-$tmux send-keys "cd $nourpos_path/packages/wss && npm start" C-m
-
-$tmux split-window  -h -p 84 -t $SESSION:$(($windows_count + 1))
 $tmux send-keys "cd $nourpos_path/packages/updater && npm start" C-m
 
 $tmux split-window  -h -p 84 -t $SESSION:$(($windows_count + 1))

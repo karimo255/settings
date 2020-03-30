@@ -1,0 +1,19 @@
+    public static Person getPersonById(String id) throws SQLException {
+        preparedStatement = con.prepareStatement(fetchPersonTemplate);
+        preparedStatement.setString(1, id);
+        ResultSet set = preparedStatement.executeQuery();
+        return getPerson(set);
+    }
+
+    private static Person getPerson(ResultSet resultSet) throws SQLException {
+        Person person = new Person();
+        person.setName(resultSet.getString("name"));
+        person.setLastName(resultSet.getString("lastName"));
+        person.setSex(resultSet.getString("sex"));
+        person.setPlz(resultSet.getString("plz"));
+        person.setCity(resultSet.getString("city"));
+        person.setCity(resultSet.getString("street"));
+        person.setHouseNr(resultSet.getInt("houseNr"));
+        person.setEmail(resultSet.getString("email"));
+        return person;
+    }
